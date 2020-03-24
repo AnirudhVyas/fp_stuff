@@ -44,7 +44,7 @@ object HomeGrownTypeClasses {
   }
   // as long as a functor implicit is in the scope we can map any of F[_] type over.
   implicit class FunctorPimp[F[_] : Functor, A](f: F[A]) {
-    def map[B](fab: A => B): F[B] = Functor[F[A]].map[A, B](f)(fab)
+    def map[B](fab: A => B): F[B] = Functor[F].map[A, B](f)(fab)
   }
   /**
    * Applicative Functor is a specialized functor typeclass (class of types) - that have capability
