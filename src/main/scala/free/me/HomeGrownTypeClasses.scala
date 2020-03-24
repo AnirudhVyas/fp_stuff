@@ -40,12 +40,11 @@ object HomeGrownTypeClasses {
     def map[A, B](xs: F[A])(f: A => B): F[B]
   }
   object Functor {
-    implicit object ListFunctor extends Functor[List] {
-      override def map[A, B](xs: List[A])(f: A => B): List[B] = xs.map(f)
-    }
-    implicit object OptionFunctor extends Functor[Option] {
-      override def map[A, B](xs: Option[A])(f: A => B): Option[B] = xs.map(f)
-    }
+    def apply[F[_] : Functor]: Functor[F] = implicitly[Functor[F]]
+  }
+  // as long as a functor implicit is in the scope we can map any of F[_] type over.
+  implicit class FunctorPimp[F[_] : Functor, A](f: F[A]) {
+    def map[B](fab: A => B): F[B] = Functor[F[A]].map[A, B](f)(fab)
   }
   /**
    * Applicative Functor is a specialized functor typeclass (class of types) - that have capability
@@ -73,10 +72,10 @@ object HomeGrownTypeClasses {
       }
       override def map[A, B](xs: Option[A])(f: A => B): Option[B] = xs.map(f)
     }
-    def get[F[_] : ApplicativeFunctor]: ApplicativeFunctor[F] = implicitly[ApplicativeFunctor[F]]
+    def apply[F[_] : ApplicativeFunctor]: ApplicativeFunctor[F] = implicitly[ApplicativeFunctor[F]]
   }
   def zipV(x: Option[String], y: Option[Int]): Option[(String, Int)] = {
-    ApplicativeFunctor.get[Option].zip[String, Int](x, y)
+    ApplicativeFunctor[Option].zip[String, Int](x, y)
   }
   /**
    * Specialized applicative functor which exhibits capability to bind >>= or flatMap in scala or
