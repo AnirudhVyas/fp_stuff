@@ -1,4 +1,5 @@
-package free.me
+package free.me.typeclasses.homegrown.typeclasses.cats
+
 import java.util.Date
 object CatsTypeClasses {
   import cats._

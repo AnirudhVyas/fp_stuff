@@ -1,5 +1,7 @@
-package free.me
+package free.me.typeclasses.homegrown.typeclasses.cats
+
 import cats.effect._
+
 import scala.concurrent.{ExecutionContext, ExecutionContextExecutor, Future}
 /**
  * IO Monad from cats and Cats effect stuff.

@@ -1,6 +1,6 @@
-package free.me
-import free.me.FunctorLaws.FunctorSeeds.OptionFunctor
-import free.me.HomeGrownTypeClasses.Functor
+package free.me.typeclasses.homegrown
+import free.me.typeclasses.homegrown.FunctorLaws.FunctorSeeds.OptionFunctor
+import free.me.typeclasses.homegrown.typeclasses.homegrown.Functors.Functor
 import org.scalacheck.{Prop, Properties}
 /**
  * A Functor obeys two laws -
