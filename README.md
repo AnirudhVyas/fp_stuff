@@ -1,3 +1,5 @@
+![alt text](https://ghe.megaleo.com/anirudh-vyas/fp_stuff/blob/master/functional_2x.png "Why FP")
+      
 # Personal notes on basic typeclasses
 - Functor homegrown - available with Functor Laws illustration.
 - Applicatives homegrown - available, needs Applicative laws
