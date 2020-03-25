@@ -1,5 +1,4 @@
 package free.me.typeclasses.homegrown
-
 import cats.kernel.Semigroup
 /**
  * Lays out type classes that can combine and have an identity.
@@ -25,6 +24,15 @@ object Monoids {
   implicit object MonoidImplicit extends Monoid[Int] {
     override def combine(x: Int, y: Int): Int = x + y
     override def identity(a: Int): Int = a
+  }
+  implicit object MonoidOptionString extends Monoid[Option[String]] {
+    override def identity(a: Option[String]): Option[String] = a
+    override def combine(x: Option[String], y: Option[String]): Option[String] = (x, y) match {
+      case (Some(a), Some(b)) => Option(s"$a:$b")
+      case (None, Some(b)) => Option(s"$b")
+      case (Some(a), None) => Option(s"$a")
+      case (None, None) => None
+    }
   }
   object Monoid {
     def apply[A: Monoid]: Monoid[A] = implicitly[Monoid[A]]
