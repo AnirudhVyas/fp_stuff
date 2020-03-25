@@ -1,6 +1,6 @@
 ![alt text](https://imgs.xkcd.com/comics/functional.png "Why FP")
       
-# Personal notes on basic typeclasses
+# Personal notes on basic typeclasses, algebras, functional data structures, trampolines, tail recursion
 - Functor homegrown - available with Functor Laws illustration.
 - Applicatives homegrown - available, needs Applicative laws
 - Monads homegrown - available, needs Monad laws
