@@ -1,4 +1,4 @@
-package free.me.typeclasses.homegrown.typeclasses.homegrown
+package free.me.typeclasses.homegrown
 
 /**
  * Functional and recursive datastructures (e.g. Cons)

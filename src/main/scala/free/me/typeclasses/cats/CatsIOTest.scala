@@ -1,4 +1,4 @@
-package free.me.typeclasses.homegrown.typeclasses.cats
+package free.me.typeclasses.cats
 
 import cats.effect._
 

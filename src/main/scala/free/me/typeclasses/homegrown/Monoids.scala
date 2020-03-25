@@ -1,4 +1,4 @@
-package free.me.typeclasses.homegrown.typeclasses.homegrown
+package free.me.typeclasses.homegrown
 
 import cats.kernel.Semigroup
 /**

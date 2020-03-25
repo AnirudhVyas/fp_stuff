@@ -1,6 +1,7 @@
-package free.me.typeclasses.homegrown.typeclasses.homegrown
+package free.me.typeclasses.homegrown
 
 import free.me.typeclasses.homegrown.Functors.Functor
+import Functors.Functor
 import free.me.typeclasses.homegrown.typeclasses.homegrown.Functors.Functor
 
 import scala.language.higherKinds
