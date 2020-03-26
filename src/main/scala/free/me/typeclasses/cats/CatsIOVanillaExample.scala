@@ -4,7 +4,7 @@ import cats.effect._
  * IO Monad from cats and Cats effect stuff.
  * TODO: Add more descriptions of operations and also show unsafe run sync/async operations.
  */
-object CatsIOTest extends IOApp {
+object CatsIOVanillaExample extends IOApp {
   override def run(args: List[String]): IO[ExitCode] = {
     val jobOne = IO {
       println("job one running")
