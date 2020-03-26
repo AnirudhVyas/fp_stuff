@@ -1,20 +1,27 @@
 package free.me.typeclasses.cats
-
 import cats.effect._
-
-import scala.concurrent.{ExecutionContext, ExecutionContextExecutor, Future}
 /**
  * IO Monad from cats and Cats effect stuff.
  * TODO: Add more descriptions of operations and also show unsafe run sync/async operations.
  */
 object CatsIOTest extends IOApp {
   override def run(args: List[String]): IO[ExitCode] = {
-    IO(println("hello world")).map(e => e).flatMap { e =>
-      implicit val ec: ExecutionContextExecutor = ExecutionContext.global
-      Async.fromFuture(IO(Future {
-        println("hello World")
-      }))
-    }.flatMap(_ => IO(0))
-      .map(ExitCode(_))
+    val jobOne = IO {
+      println("job one running")
+      Thread.sleep(5000)
+      println("job one completed")
+    }
+    val jobTwo = IO {
+      println("job two running")
+      Thread.sleep(5000)
+      println("job two completed")
+    }
+    val x: IO[(Unit, Unit)] = for {
+      j1 <- jobOne
+      j2 <- jobTwo
+    } yield (j1, j2)
+    println("== descriptive program now has to run ==")
+    x.unsafeRunSync()
+    IO(ExitCode.Success)
   }
 }
