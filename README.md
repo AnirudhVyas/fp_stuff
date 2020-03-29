@@ -1,3 +1,5 @@
+![Scala CI](https://github.com/AnirudhVyas/fp_stuff/workflows/Scala%20CI/badge.svg?branch=master)
+
 ![alt text](https://imgs.xkcd.com/comics/functional.png "Why FP")
       
 # Personal notes on basic typeclasses, algebras, functional data structures, trampolines, tail recursion
