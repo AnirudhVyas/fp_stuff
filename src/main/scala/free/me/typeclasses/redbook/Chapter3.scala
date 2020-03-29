@@ -24,11 +24,14 @@ object Chapter3 extends App {
     case Nil => l2
     case h :: t => h :: append(t, l2)
   }
+  implicit class ListImplicit[A](current: List[A]) {
+    def |++|(other: List[A]): List[A] = append[A](current, other)
+  }
   // 3.15
-  def concat[A](xs: List[List[A]]) = xs.foldLeft(List.empty[A]) { (acc, l) =>
+  def concat[A](xs: List[List[A]]): List[A] = xs.foldLeft(List.empty[A]) { (acc, l) =>
     acc match {
       case Nil => l
-      case h :: t => h :: t ++ l
+      case h :: t => h :: t |++| l
     }
   }
 }

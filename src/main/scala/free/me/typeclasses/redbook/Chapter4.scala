@@ -28,4 +28,11 @@ object Chapter4 {
   }
   case object NothingM extends Option[Nothing]
   case class Just[+A](a: A) extends Option[A]
+  def map2[A, B, C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] = {
+    (a, b) match {
+      case (Just(_), NothingM) => NothingM
+      case (NothingM, Just(_)) => NothingM
+      case (Just(a), Just(b)) => Just(f(a, b))
+    }
+  }
 }
