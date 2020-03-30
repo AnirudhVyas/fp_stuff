@@ -1,10 +1,7 @@
 package free.me.typeclasses.homegrown
-
-import Applicatives.ApplicativeFunctor
-
+import free.me.typeclasses.homegrown.Applicatives.ApplicativeFunctor
 import scala.language.higherKinds
 object Monads {
-
   /**
    * Specialized applicative functor which exhibits capability to bind >>= or flatMap in scala or
    * sequence effectful types/computations. e.g.
